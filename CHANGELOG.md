@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/stainless-api/trigger-release-please/compare/v1.0.3...v1.1.0) (2023-04-26)
+
+
+### Features
+
+* add check for API status code ([8cc11ec](https://github.com/stainless-api/trigger-release-please/commit/8cc11ec27ea580482c5cee3d0b3e8e5cf908f363))
+
+
+### Bug Fixes
+
+* correct JSON body ([8e2bd9a](https://github.com/stainless-api/trigger-release-please/commit/8e2bd9a50fdc2892f84a33d67185ebdcc94da314))
+
 ## [1.0.3](https://github.com/stainless-api/trigger-release-please/compare/v1.0.2...v1.0.3) (2023-04-26)
 
 
