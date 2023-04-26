@@ -9976,6 +9976,10 @@ async function main() {
     throw new Error(`API Error ${res.status} - ${data.error}`);
   }
 
+  if (!res.ok) {
+    throw new Error(`API Error ${res.status} - ${data}`);
+  }
+
   if (data?.releases?.length) {
     core.setOutput('releases_created', true);
   }
