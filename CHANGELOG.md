@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/stainless-api/trigger-release-please/compare/v1.0.1...v1.0.2) (2023-04-26)
+
+
+### Bug Fixes
+
+* incorrect usage of fetch ([657eb21](https://github.com/stainless-api/trigger-release-please/commit/657eb2132ce9538e63cb93922513ff6295057a5f))
+
 ## [1.0.1](https://github.com/stainless-api/trigger-release-please/compare/v1.0.0...v1.0.1) (2023-04-26)
 
 
