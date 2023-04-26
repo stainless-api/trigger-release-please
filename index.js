@@ -1,4 +1,5 @@
 const core = require('@actions/core');
+const fetch = require('node-fetch');
 
 const BASE_URL = 'http://localhost:3000/api';
 
