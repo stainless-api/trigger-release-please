@@ -21,12 +21,13 @@ async function main() {
 
   const res = await fetch(`${BASE_URL}/trigger-release-please`, {
     method: 'POST',
-    body: {
+    body: JSON.stringify({
       owner,
       repo,
-    },
+    }),
     headers: {
       Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
     },
   });
 
@@ -36,6 +37,8 @@ async function main() {
   if (data instanceof Error) {
     throw new Error(`Could not process API response. ${text}`);
   }
+
+  console.log('API Response', data);
 
   if (data?.error) {
     throw new Error(`API Error ${res.status} - ${data.error}`);
