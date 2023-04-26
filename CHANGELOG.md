@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/stainless-api/trigger-release-please/compare/v1.0.2...v1.0.3) (2023-04-26)
+
+
+### Bug Fixes
+
+* use live API instead of test API ([1410538](https://github.com/stainless-api/trigger-release-please/commit/14105385ace322fdbd0fb904da8ddb85aaa6765b))
+
 ## [1.0.2](https://github.com/stainless-api/trigger-release-please/compare/v1.0.1...v1.0.2) (2023-04-26)
 
 
