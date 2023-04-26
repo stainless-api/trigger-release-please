@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/stainless-api/trigger-release-please/compare/v1.0.0...v1.0.1) (2023-04-26)
+
+
+### Bug Fixes
+
+* use node-fetch instead of assuming fetch is available ([fa80268](https://github.com/stainless-api/trigger-release-please/commit/fa802680cb8fd1fe1f8951355afc8052b8832ba6))
+
 ## 1.0.0 (2023-04-26)
 
 
