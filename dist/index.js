@@ -7192,15 +7192,10 @@ const File = _File
 
 // EXPORTS
 __nccwpck_require__.d(__webpack_exports__, {
-  "t6": () => (/* reexport */ fetch_blob/* default */.Z),
-  "$B": () => (/* reexport */ file/* default */.Z),
-  "xB": () => (/* binding */ blobFrom),
-  "SX": () => (/* binding */ blobFromSync),
-  "e2": () => (/* binding */ fileFrom),
-  "RA": () => (/* binding */ fileFromSync)
+  "$B": () => (/* reexport */ file/* default */.Z)
 });
 
-// UNUSED EXPORTS: default
+// UNUSED EXPORTS: Blob, blobFrom, blobFromSync, default, fileFrom, fileFromSync
 
 ;// CONCATENATED MODULE: external "node:fs"
 const external_node_fs_namespaceObject = require("node:fs");
@@ -7226,7 +7221,7 @@ const { stat } = external_node_fs_namespaceObject.promises
  * @param {string} path filepath on the disk
  * @param {string} [type] mimetype to use
  */
-const blobFromSync = (path, type) => fromBlob((0,external_node_fs_namespaceObject.statSync)(path), path, type)
+const blobFromSync = (path, type) => fromBlob(statSync(path), path, type)
 
 /**
  * @param {string} path filepath on the disk
@@ -7246,10 +7241,10 @@ const fileFrom = (path, type) => stat(path).then(stat => fromFile(stat, path, ty
  * @param {string} path filepath on the disk
  * @param {string} [type] mimetype to use
  */
-const fileFromSync = (path, type) => fromFile((0,external_node_fs_namespaceObject.statSync)(path), path, type)
+const fileFromSync = (path, type) => fromFile(statSync(path), path, type)
 
 // @ts-ignore
-const fromBlob = (stat, path, type = '') => new fetch_blob/* default */.Z([new BlobDataItem({
+const fromBlob = (stat, path, type = '') => new Blob([new BlobDataItem({
   path,
   size: stat.size,
   lastModified: stat.mtimeMs,
@@ -7257,12 +7252,12 @@ const fromBlob = (stat, path, type = '') => new fetch_blob/* default */.Z([new B
 })], { type })
 
 // @ts-ignore
-const fromFile = (stat, path, type = '') => new file/* default */.Z([new BlobDataItem({
+const fromFile = (stat, path, type = '') => new File([new BlobDataItem({
   path,
   size: stat.size,
   lastModified: stat.mtimeMs,
   start: 0
-})], (0,external_node_path_namespaceObject.basename)(path), { type, lastModified: stat.mtimeMs })
+})], basename(path), { type, lastModified: stat.mtimeMs })
 
 /**
  * This is a blob backed up by a file on the disk
@@ -7298,9 +7293,9 @@ class BlobDataItem {
   async * stream () {
     const { mtimeMs } = await stat(this.#path)
     if (mtimeMs > this.lastModified) {
-      throw new node_domexception('The requested file could not be read, typically due to permission problems that have occurred after a reference to a file was acquired.', 'NotReadableError')
+      throw new DOMException('The requested file could not be read, typically due to permission problems that have occurred after a reference to a file was acquired.', 'NotReadableError')
     }
-    yield * (0,external_node_fs_namespaceObject.createReadStream)(this.#path, {
+    yield * createReadStream(this.#path, {
       start: this.#start,
       end: this.#start + this.size - 1
     })
@@ -7639,26 +7634,13 @@ return new B(c,{type:"multipart/form-data; boundary="+b})}
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __nccwpck_require__) => {
 
 "use strict";
-// ESM COMPAT FLAG
-__nccwpck_require__.r(__webpack_exports__);
 
 // EXPORTS
 __nccwpck_require__.d(__webpack_exports__, {
-  "AbortError": () => (/* reexport */ AbortError),
-  "Blob": () => (/* reexport */ from/* Blob */.t6),
-  "FetchError": () => (/* reexport */ FetchError),
-  "File": () => (/* reexport */ from/* File */.$B),
-  "FormData": () => (/* reexport */ esm_min/* FormData */.Ct),
-  "Headers": () => (/* reexport */ Headers),
-  "Request": () => (/* reexport */ Request),
-  "Response": () => (/* reexport */ Response),
-  "blobFrom": () => (/* reexport */ from/* blobFrom */.xB),
-  "blobFromSync": () => (/* reexport */ from/* blobFromSync */.SX),
-  "default": () => (/* binding */ fetch),
-  "fileFrom": () => (/* reexport */ from/* fileFrom */.e2),
-  "fileFromSync": () => (/* reexport */ from/* fileFromSync */.RA),
-  "isRedirect": () => (/* reexport */ isRedirect)
+  "ZP": () => (/* binding */ fetch)
 });
+
+// UNUSED EXPORTS: AbortError, Blob, FetchError, File, FormData, Headers, Request, Response, blobFrom, blobFromSync, fileFrom, fileFromSync, isRedirect
 
 ;// CONCATENATED MODULE: external "node:http"
 const external_node_http_namespaceObject = require("node:http");
@@ -9949,7 +9931,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 const core = __nccwpck_require__(2186);
-const fetch = __nccwpck_require__(4429);
+const fetch = (__nccwpck_require__(4429)/* ["default"] */ .ZP);
 
 const BASE_URL = 'http://localhost:3000/api';
 
@@ -10003,7 +9985,6 @@ function safeJson(input) {
   try {
     return JSON.parse(input);
   } catch (err) {
-    console.log('NICE');
     return new Error(err);
   }
 }
