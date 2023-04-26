@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const fetch = require('node-fetch');
+const fetch = require('node-fetch').default;
 
 const BASE_URL = 'http://localhost:3000/api';
 
@@ -53,7 +53,6 @@ function safeJson(input) {
   try {
     return JSON.parse(input);
   } catch (err) {
-    console.log('NICE');
     return new Error(err);
   }
 }
