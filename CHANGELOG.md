@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/stainless-api/trigger-release-please/compare/v1.1.0...v1.2.0) (2023-04-26)
+
+
+### Features
+
+* **internal/ci:** add workflow for updating version tag ([199f0f7](https://github.com/stainless-api/trigger-release-please/commit/199f0f7caba44affde4ab31227db566534c9cd4b))
+
 ## [1.1.0](https://github.com/stainless-api/trigger-release-please/compare/v1.0.3...v1.1.0) (2023-04-26)
 
 
