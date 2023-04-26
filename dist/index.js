@@ -9945,7 +9945,6 @@ async function main() {
 
   const apiKey = core.getInput('stainless-api-key');
   if (!apiKey) {
-    // TODO: check if redundant
     throw new Error('Missing stainless-api-key input');
   }
 
@@ -9982,6 +9981,8 @@ async function main() {
 
   if (data?.releases?.length) {
     core.setOutput('releases_created', true);
+  } else {
+    core.setOutput('releases_created', false);
   }
 }
 
