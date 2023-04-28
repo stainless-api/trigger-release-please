@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/stainless-api/trigger-release-please/compare/v1.2.0...v1.2.1) (2023-04-28)
+
+
+### Bug Fixes
+
+* do not always set releases_created ([1855c46](https://github.com/stainless-api/trigger-release-please/commit/1855c468536c050b5ed3e18cdc89bd597e5f5492))
+
 ## [1.2.0](https://github.com/stainless-api/trigger-release-please/compare/v1.1.0...v1.2.0) (2023-04-26)
 
 
