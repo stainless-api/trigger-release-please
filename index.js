@@ -49,8 +49,6 @@ async function main() {
 
   if (data?.releases?.length) {
     core.setOutput('releases_created', true);
-  } else {
-    core.setOutput('releases_created', false);
   }
 }
 
