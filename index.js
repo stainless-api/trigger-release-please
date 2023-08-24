@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const fetch = require('node-fetch').default;
 
-const BASE_URL = 'https://api.stainlessapi.com/api';
+const BASE_URL = 'https://api-im8l5axlc-stainless-api.vercel.app/api';
 
 async function main() {
   const fullRepo = core.getInput('repo');
@@ -16,13 +16,16 @@ async function main() {
     throw new Error('Missing stainless-api-key input');
   }
 
-  console.log(`Running Release Please with`, { owner, repo });
+  const branchWithChanges = core.getInput('branch-with-changes');
+
+  console.log(`Running Release Please with`, { owner, repo, branchWithChanges });
 
   const res = await fetch(`${BASE_URL}/trigger-release-please`, {
     method: 'POST',
     body: JSON.stringify({
       owner,
       repo,
+      ...(branchWithChanges ? { branchWithChanges } : {}),
     }),
     headers: {
       Authorization: `Bearer ${apiKey}`,
