@@ -9969,7 +9969,7 @@ async function main() {
 
   const data = safeJson(text);
   if (data instanceof Error) {
-    throw new Error(`Could not process API response. ${text}`);
+    throw new Error(`Could not process API response. text=${text} data=${data}`);
   }
 
   console.log('API Response', data);
