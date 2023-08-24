@@ -37,7 +37,7 @@ async function main() {
 
   const data = safeJson(text);
   if (data instanceof Error) {
-    throw new Error(`Could not process API response. text=${text} data=${data}`);
+    throw new Error(`Could not process API response. text=${text} data=${data} status=${res.status}`);
   }
 
   console.log('API Response', data);
