@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const fetch = require('node-fetch').default;
 
-const BASE_URL = 'https://api-im8l5axlc-stainless-api.vercel.app/api';
+const BASE_URL = 'https://api-stainless-bot-stainless-api.vercel.app/api';
 
 async function main() {
   const fullRepo = core.getInput('repo');
