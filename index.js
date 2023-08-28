@@ -16,13 +16,16 @@ async function main() {
     throw new Error('Missing stainless-api-key input');
   }
 
-  console.log(`Running Release Please with`, { owner, repo });
+  const branchWithChanges = core.getInput('branch-with-changes');
+
+  console.log(`Running Release Please with`, { owner, repo, branchWithChanges });
 
   const res = await fetch(`${BASE_URL}/trigger-release-please`, {
     method: 'POST',
     body: JSON.stringify({
       owner,
       repo,
+      ...(branchWithChanges ? { branchWithChanges } : {}),
     }),
     headers: {
       Authorization: `Bearer ${apiKey}`,
@@ -34,7 +37,7 @@ async function main() {
 
   const data = safeJson(text);
   if (data instanceof Error) {
-    throw new Error(`Could not process API response. ${text}`);
+    throw new Error(`Could not process API response. text=${text} data=${data} status=${res.status}`);
   }
 
   console.log('API Response', data);

@@ -13,3 +13,6 @@ inputs:
   stainless-api-key:
     description: 'The API key provided to you by Stainless'
     required: true
+  branch-with-changes:
+    description: 'Name of the branch that contains changes for the release.'
+    required: false
