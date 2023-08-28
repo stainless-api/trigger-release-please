@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/stainless-api/trigger-release-please/compare/v1.2.1...v1.3.0) (2023-08-28)
+
+
+### Features
+
+* add input branch-with-changes ([11f0859](https://github.com/stainless-api/trigger-release-please/commit/11f085915644a1e7a17cf620b85126eb9e06cd1b))
+
 ## [1.2.1](https://github.com/stainless-api/trigger-release-please/compare/v1.2.0...v1.2.1) (2023-04-28)
 
 
