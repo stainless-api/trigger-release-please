@@ -9933,7 +9933,7 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(2186);
 const fetch = (__nccwpck_require__(4429)/* ["default"] */ .ZP);
 
-const BASE_URL = 'https://api.stainlessapi.com/api';
+const BASE_URL = 'https://api-hvmcstq2t-stainless-api.vercel.app/api';
 
 async function main() {
   const fullRepo = core.getInput('repo');
