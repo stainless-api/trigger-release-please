@@ -9984,6 +9984,7 @@ async function main() {
 
   if (data?.releases?.length) {
     core.setOutput('releases_created', true);
+    outputReleases(data.releases);
   }
 }
 
@@ -9996,6 +9997,53 @@ function safeJson(input) {
   } catch (err) {
     return new Error(err);
   }
+}
+
+/**
+ * @param {string} path
+ * @param {string} key
+ * @param {(string | boolean)} value
+ */
+function setPathOutput(path, key, value) {
+  if (path === '.') {
+    core.setOutput(key, value);
+  } else {
+    core.setOutput(`${path}--${key}`, value);
+  }
+}
+
+/**
+ * Add specific outputs for each release.
+ *
+ * Most notable is the `paths_released` output which
+ * makes it easy to build automations around monorepo setups.
+ */
+function outputReleases(releases) {
+  releases = releases.filter(Boolean);
+
+  const pathsReleased = [];
+
+  for (const release of releases) {
+    if (!release.path) {
+      console.warn('Release has no path', release);
+    }
+
+    const path = release.path || '.';
+    pathsReleased.push(path);
+
+    for (const [rawKey, value] of Object.entries(release)) {
+      let key = rawKey;
+      if (key === 'tagName') key = 'tag_name';
+      if (key === 'uploadUrl') key = 'upload_url';
+      if (key === 'notes') key = 'body';
+      if (key === 'url') key = 'html_url';
+      setPathOutput(path, key, value);
+    }
+  }
+
+  // Paths of all releases that were created, so that they can be passed
+  // to the next step:
+  core.setOutput('paths_released', JSON.stringify(pathsReleased));
 }
 
 main().catch((err) => {
