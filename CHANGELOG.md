@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/stainless-api/trigger-release-please/compare/v1.3.0...v1.4.0) (2024-01-22)
+
+
+### Features
+
+* output paths released ([#11](https://github.com/stainless-api/trigger-release-please/issues/11)) ([e043eeb](https://github.com/stainless-api/trigger-release-please/commit/e043eeb294b5812b951cf0027604fc1054fe62fc))
+
 ## [1.3.0](https://github.com/stainless-api/trigger-release-please/compare/v1.2.1...v1.3.0) (2023-08-28)
 
 
